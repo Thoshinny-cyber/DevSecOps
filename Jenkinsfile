@@ -41,19 +41,20 @@ pipeline{
           sh 'cat target/sonar/report-task.txt'
         }
       }
-    }//   stage('SAST') {
-      // steps {
-        // timeout(time: 10, unit: 'MINUTES') {
-        // echo 'Testing...'
-        // snykSecurity(
-        //   failOnError: false, 
-        //   failOnIssues: false, 
-        //   snykInstallation: 'Snyk', 
-        //   snykTokenId: 'Snyk'
-        //     )
-          // place other parameters here
-        // )
-        // }
+    }
+          stage('SAST-2') {
+      steps {
+        timeout(time: 1, unit: 'MINUTES') {
+        echo 'Testing...'
+        snykSecurity(
+          failOnError: false, 
+          failOnIssues: false, 
+          snykInstallation: 'Snyk', 
+          snykTokenId: 'env.SNYK_API_TOKEN'
+            )
+        }
+        }
+          }
           // script{
           // // withCredentials([string(credentialsId: 'env.SNYK_API_TOKEN', variable: 'SNYK_API_TOKEN')]) 
           //               sh "docker pull thoshinny/snyk:latest"
