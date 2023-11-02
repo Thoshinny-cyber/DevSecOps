@@ -50,7 +50,7 @@ pipeline{
           failOnError: false, 
           failOnIssues: false, 
           snykInstallation: 'Snyk', 
-          snykTokenId: 'env.SNYK_API_TOKEN'
+          snykTokenId: 'Snyk'
             )
         }
         }
