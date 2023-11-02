@@ -37,7 +37,6 @@ pipeline{
       stage ('SAST') {
       steps {
         withSonarQubeEnv('sonar') {
-          sh 'docker run -p 9000:9000 sonarqube'
           sh 'mvn sonar:sonar'
           sh 'cat target/sonar/report-task.txt'
         }
