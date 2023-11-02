@@ -11,14 +11,14 @@ pipeline{
         stage('SCM'){
             steps{
                 git credentialsId: 'github', 
-                    url: 'https://github.com/Thoshinny-cyber/dockeransiblejenkins.git'
+                    url: 'https://github.com/Thoshinny-cyber/DevSecOps.git'
             }
         }
         stage ('Check-Git-Secrets') {
       steps {
         sh "rm trufflehog || true"
         sh "docker pull gesellix/trufflehog"
-        sh "docker run gesellix/trufflehog --json https://github.com/Thoshinny-cyber/dockeransiblejenkins.git > trufflehog"
+        sh "docker run gesellix/trufflehog --json https://github.com/Thoshinny-cyber/DevSecOps.git > trufflehog"
         sh "cat trufflehog"
       }
     }
