@@ -13,6 +13,7 @@
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
+    
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,6 +48,8 @@
         </div><!--/.navbar-collapse -->
     </div>
 </div>
+<script>apiKey: "AIzaSyAMDPgaKAgDIuzmPtbSK5EnGhNqC3Y4nRA"</script>
+<script>apiKey: "AIzaSyAMDPgaKAgDIuzmPtjncforj23opekdnwe"</script>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
