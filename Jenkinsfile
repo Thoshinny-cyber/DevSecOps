@@ -29,7 +29,7 @@ pipeline{
          sh 'wget "https://raw.githubusercontent.com/Thoshinny-cyber/dockeransiblejenkins/master/owasp-dependency-check.sh" '
          sh 'chmod +x owasp-dependency-check.sh'
          sh 'bash owasp-dependency-check.sh'
-         sh 'cat /var/lib/jenkins/Java_pipeline/reports/dependency-check-report.xml'
+         sh 'cat /var/lib/jenkins/DevSecOps/reports/dependency-check-report.xml'
         
       }
     }
