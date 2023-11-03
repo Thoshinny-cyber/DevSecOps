@@ -42,19 +42,19 @@ pipeline{
         }
       }
     }
-          stage('SAST-2') {
-      steps {
-        timeout(time: 1, unit: 'MINUTES') {
-        echo 'Testing...'
-        snykSecurity(
-          failOnError: false, 
-          failOnIssues: false, 
-          snykInstallation: 'Snyk', 
-          snykTokenId: 'Snyk'
-            )
-        }
-        }
-          }
+      //     stage('SAST-2') {
+      // steps {
+      //   timeout(time: 1, unit: 'MINUTES') {
+      //   echo 'Testing...'
+      //   snykSecurity(
+      //     failOnError: false, 
+      //     failOnIssues: false, 
+      //     snykInstallation: 'Snyk', 
+      //     snykTokenId: 'Snyk'
+      //       )
+      //   }
+      //   }
+      //     }
           // script{
           // // withCredentials([string(credentialsId: 'env.SNYK_API_TOKEN', variable: 'SNYK_API_TOKEN')]) 
           //               sh "docker pull thoshinny/snyk:latest"
