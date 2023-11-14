@@ -23,16 +23,16 @@ pipeline{
       }
     }
          
-         stage ('Source Composition Analysis') {
-      steps {
-         sh 'rm owasp* || true'
-         sh 'wget "https://raw.githubusercontent.com/Thoshinny-cyber/DevSecOps/master/owasp-dependency-check.sh" '
-         sh 'chmod +x owasp-dependency-check.sh'
-         sh 'bash owasp-dependency-check.sh'
-         sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+    //      stage ('Source Composition Analysis') {
+    //   steps {
+    //      sh 'rm owasp* || true'
+    //      sh 'wget "https://raw.githubusercontent.com/Thoshinny-cyber/DevSecOps/master/owasp-dependency-check.sh" '
+    //      sh 'chmod +x owasp-dependency-check.sh'
+    //      sh 'bash owasp-dependency-check.sh'
+    //      sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
         
-      }
-    }
+    //   }
+    // }
 
       stage ('SAST') {
       steps {
@@ -97,7 +97,7 @@ pipeline{
         stage ('DAST') {
         steps {
         sshagent(['zap']) {
-         sh 'ssh -o  StrictHostKeyChecking=no ec2-user@13.235.73.26 "docker run -t -v /var/lib/jenkins/workspace/DevSecOps_Pipeline:/zap/wrk --user 995:993 -e ZAP_CONFIG="zap.yaml" owasp/zap2docker-stable zap-baseline.py -t http://65.0.6.100:8080/dockeransible/ -r report.html" || true'
+         sh 'ssh -o  StrictHostKeyChecking=no ec2-user@3.110.104.252 "docker run -t -v /var/lib/jenkins/workspace/DevSecOps_Pipeline:/zap/wrk --user 995:993 -e ZAP_CONFIG="zap.yaml" owasp/zap2docker-stable zap-baseline.py -t http://65.0.6.100:8080/dockeransible/ -r report.html" || true'
         }
       }
     }
