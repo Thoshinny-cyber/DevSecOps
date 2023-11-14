@@ -97,7 +97,7 @@ pipeline{
         stage ('DAST') {
         steps {
         sshagent(['zap']) {
-         sh 'ssh -o  StrictHostKeyChecking=no ec2-user@3.110.104.252 "docker run -t -v /var/lib/jenkins/workspace/DevSecOps_Pipeline:/zap/wrk --user 995:993 -e ZAP_CONFIG="zap.yaml" owasp/zap2docker-stable zap-baseline.py -t http://65.0.6.100:8080/dockeransible/ -r report.html" || true'
+         sh 'ssh -o  StrictHostKeyChecking=no ec2-user@3.110.104.252 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://65.0.6.100:8080/dockeransible/" || true'
         }
       }
     }
